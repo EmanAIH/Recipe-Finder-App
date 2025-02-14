@@ -53,16 +53,51 @@ async function viewDetails(recipeId) {
         const response = await fetch(url);
         const recipe = await response.json();
 
-        alert(`Recipe: ${recipe.title}
-        Ingredients: ${recipe.extendedIngredients.map(ingredient => ingredient.name).join(", ")}
-        Instructions: ${recipe.instructions || "No instructions available."}`);
+        // Create modal container and content
+        const modal = document.createElement('div');
+        modal.classList.add('modal');
+        const modalContent = document.createElement('div');
+        modalContent.classList.add('modal-content');
 
+        // create a close button
+        const closeBtn = document.createElement('span');
+        closeBtn.classList.add('close');
+        closeBtn.innerHTML = '&times;';
+
+        // create the recipe title, ingredients, and instructions
+
+        const title = document.createElement('h3');
+        title.innerText = `Recipe: ${recipe.title}`;
+        const ingredients = document.createElement('p');
+        ingredients.innerText = `Ingredients: ${recipe.extendedIngredients.map(ingredient => ingredient.name).join(", ")}`;
+        const instructions = document.createElement('p');
+        instructions.innerText = `Instructions: ${recipe.instructions || "No instructions available."}`;    
+        // Append elements to the modal content
+        modalContent.appendChild(closeBtn);
+        modalContent.appendChild(title);
+        modalContent.appendChild(ingredients);
+        modalContent.appendChild(instructions);
+        // Append modal content to the modal container
+        modal.appendChild(modalContent);
+        document.body.appendChild(modal);
+        modal.style.display = 'block';
+        // Close the modal when the user clicks on the close button
+        closeBtn.onclick = function() {
+            modal.style.display = 'none';
+            modal.remove();  // Remove the modal from the DOM
+        }
+        // Close the modal if the user clicks anywhere outside of the modal
+        window.onclick = function(event) {
+            if (event.target === modal) {
+                modal.style.display = 'none';
+                modal.remove();  // Remove the modal from the DOM
+            }
+        }
     } catch (error) {
         console.error("Error fetching recipe details:", error);
         alert("An error occurred while fetching recipe details. Please try again.");
     }
 }
-
 
 
 let favoriteRecipes =[];
