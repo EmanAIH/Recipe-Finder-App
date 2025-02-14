@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&display=swap');
+
+
+*{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+body{
+    font-family: "Kumbh Sans", serif;
+    background-color: #f8f9fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Allow scrolling */
+    overflow-y: auto; /* Enable vertical scrolling */
+    height: 100vh;
+}
+
+.container{
+    max-width: 600px;
+    background-color: white;
+    margin: 2em auto;
+    padding: 2em;
+    border-radius: 0.5rem;
+    box-shadow:  10px 10px 20px rgba(0, 0, 0, 0.2);
+    /* height: 90vh; */
+    overflow-y: visible
+
+}
+
+
+
+.container input, .container button{
+    width: 100%;
+    margin: 0.5rem 0;
+    padding: 0.8rem;
+    font-family: "Kumbh Sans", serif;
+    cursor: pointer;
+}
+
+.container input {
+    border: 1px solid #ccc;
+}
+
+.container input:focus{
+    border-color: #007bff;
+    box-shadow: 3px 3px 5px rgba(0, 123, 255, 0.5);
+}
+
+.container button{
+    background-color: #f8f9fa;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    font-weight: bold;
+    transition: 0.3s;
+    box-shadow:  3px 3px 10px 3px rgba(0, 0, 0, 0.25);
+}
+
+.container button:hover{
+    background-color: #e8e9eb;
+    transform: scale(1.05);
+}
+
+
+/* Style Recipe List */
+#recipes-container ul {
+    margin-top: 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);  /* 2 items per column */
+    gap: 1rem;
+}
+
+#recipes-container h3 {
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+/* Remove bullet points properly */
+#recipe-list,
+#favorite-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+}
+
+/* Style individual recipe items */
+#recipe-list li,
+#favorite-list li {
+    background: #f1f1f1;
+    text-align: center;
+    padding: 0.8rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+#recipe-list li h4 {
+    font-size: 1.1rem;
+    color: #130b0b;
+    font-weight: 400;
+}
+
+#recipe-list li img {
+    width: 90px;
+    height: 80px;
+    border-radius: 10px;
+    margin: 1rem 0;
+}
+
+/* Style buttons inside list */
+.favorite-btn,
+#recipe-list li button {
+    background: #ffc107;
+    border: none;
+    cursor: pointer;
+    padding: 0.4rem 0.8rem;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+
+.favorite-btn:hover,
+#recipe-list li button:hover {
+    background: #e0a800;
+    transform: scale(1.05);
+}
+
+/* Favorite section */
+
+#favorite-list li button {
+    background: red;
+    color: white;
+    font-size: 0.8rem;
+    margin-left: 8px;
+    padding: 0.4rem 0.6rem;
+    width: 50%;
+}
+
+#favorite-list li button:hover {
+    background: darkred;
+}
