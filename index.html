@@ -4,8 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recipe Finder App</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <main>
+      <div class="container">
+        <h1>Recipe finder</h1>
+        <input type="text" id="ingredient-input" placeholder="Enter ingredient(separate by commas)">
+        <button class="search-btn" onclick="findRecipes()">Search</button>
+
+        <div id="recipes-container">
+            <h3>Recipes</h3>
+            <ul id="recipe-list"></ul>
+            <h3>Favorites</h3>
+            <ul id="favorite-list"></ul>
+        </div>
+    </div>
+    </main>
     
+
+
+    <script src="script.js"></script>
 </body>
 </html>
